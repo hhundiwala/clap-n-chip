@@ -10,17 +10,13 @@ export class FirebaseRepoService {
 
   constructor(private afs: AngularFirestore) { }
 
-  public createArtist(){
-    var artistCollection = this.afs.collection<Artist>('Astists');
-    var art: Artist = {
-      firstname: "Harsh",
-      lastname: "Hundiwala",
-      username: "hhundiwala",
-      email: "hhundiwala@gmail.com",
-      password: "hhundiwala"
+  public createArtist(artist: Artist){
+    var artistCollection = this.afs.collection<Artist>('Artists');
+    return artistCollection.add(artist);
+  }
+
+  public artistLogin(credentials: any){
     
-    }
-    return artistCollection.add(art);
   }
 
   createUser(){
