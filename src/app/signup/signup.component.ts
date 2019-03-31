@@ -28,7 +28,7 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
      this.firebaseRepo.createArtist(this.artistform.value).then((x) => { 
-      this.router.navigateByUrl('/artist-portfolio');
+      this.router.navigateByUrl('/artist-login');
      });
      
   }

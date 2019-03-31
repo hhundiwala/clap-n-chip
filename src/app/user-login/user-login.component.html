@@ -7,7 +7,7 @@
   <legend class="">Get your passion going!!!</legend>
 </div>
 {{ errorMessage }}
-<form [formGroup]="artistLoginform" (ngSubmit)="onSubmit()" class="form-horizontal">
+<form [formGroup]="userLoginform" (ngSubmit)="onSubmit()" class="form-horizontal">
   <fieldset>
     <div class="control-group">
       <label class="control-label">Email</label>
@@ -26,7 +26,7 @@
     <div class="control-group">
       <!-- Button -->
       <div class="controls">
-        <button class="btn btn-success" type="submit" [disabled]="!artistLoginform.valid">Login</button>
+        <button class="btn btn-success" type="submit" [disabled]="!userLoginform.valid">Login</button>
       </div>
     </div>
   </fieldset>

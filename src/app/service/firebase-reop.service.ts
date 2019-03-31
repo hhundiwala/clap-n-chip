@@ -1,3 +1,4 @@
+import { User } from './../models/user';
 import { Post } from './../models/post';
 import { Artist } from './../models/artist';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -16,8 +17,9 @@ export class FirebaseRepoService {
     return artistCollection.add(artist);
   }
 
-  createUser(){
-
+  createUser(user: User){
+    var artistCollection = this.afs.collection<User>('Users');
+    return artistCollection.add(user);
   }
 
   createPost(post: Post){

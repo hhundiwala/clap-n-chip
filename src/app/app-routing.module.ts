@@ -5,13 +5,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { ArtistLoginComponent } from './artist-login/artist-login.component';
 import { ArtistPortfolioComponent } from './artist-portfolio/artist-portfolio.component';
 import { EditPortfolioComponent } from './edit-portfolio/edit-portfolio.component';
+import { UserSignupComponent } from './user-signup/user-signup.component';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 const routes: Routes = [
   { path: 'artist-signup', component: SignupComponent },
   { path: 'artist-login', component: ArtistLoginComponent },
   { path: 'artist-portfolio', component: ArtistPortfolioComponent },
   { path: 'edit-portfolio', component: EditPortfolioComponent },
-  { path: 'create-post', component: CreatePostComponent }
+  { path: 'create-post', component: CreatePostComponent },
+  { path: 'user-signup', component: UserSignupComponent },
+  { path: 'user-login', component: UserLoginComponent }
 ];
 
 @NgModule({

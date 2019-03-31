@@ -16,6 +16,8 @@ import { ArtistPortfolioComponent } from './artist-portfolio/artist-portfolio.co
 import { HeaderComponent } from './header/header.component';
 import { EditPortfolioComponent } from './edit-portfolio/edit-portfolio.component';
 import { NgxsModule } from '@ngxs/store';
+import { UserSignupComponent } from './user-signup/user-signup.component';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { NgxsModule } from '@ngxs/store';
     ArtistPortfolioComponent,
     HeaderComponent,
     EditPortfolioComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    UserSignupComponent,
+    UserLoginComponent
   ],
   imports: [
     NgbModule,
