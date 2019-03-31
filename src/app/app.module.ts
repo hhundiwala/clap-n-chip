@@ -1,3 +1,4 @@
+import { CreatePostComponent } from './create-post/create-post.component';
 import { UserState } from './state/user.state';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -24,6 +25,7 @@ import { NgxsModule } from '@ngxs/store';
     ArtistPortfolioComponent,
     HeaderComponent,
     EditPortfolioComponent,
+    CreatePostComponent
   ],
   imports: [
     NgbModule,

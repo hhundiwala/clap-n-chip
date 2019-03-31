@@ -29,19 +29,31 @@ export class EditPortfolioComponent implements OnInit {
     this.userState$.subscribe(state => {
       this.id = state.id;
       var artist$ = this.afs.collection<Artist>('Artists', ref => ref.where('email', '==', state.email)).valueChanges();
-     artist$.subscribe((art) => {
+      artist$.subscribe((art) => {
        if(art){
+        console.log(art);
         this.art = art;
         if(art[0].portfolio){
           var port = art[0].portfolio;
-          this.editPortfolioForm =   new FormGroup({
-            story: new FormControl(port.story),
-            values: new FormControl(port.values),
-            note: new FormControl(port.note),
-            youtube_url: new FormControl(port.youtube_url),
-            instagram_url: new FormControl(port.instagram_url),
-            facebook_url: new FormControl(port.facebook_url)
-          });
+            this.editPortfolioForm =   new FormGroup({
+              story: new FormControl(port.story),
+              values: new FormControl(port.values),
+              note: new FormControl(port.note),
+              youtube_url: new FormControl(port.youtube_url),
+              instagram_url: new FormControl(port.instagram_url),
+              facebook_url: new FormControl(port.facebook_url)
+            });
+        }
+        else{
+            console.log("here");
+            this.editPortfolioForm =   new FormGroup({
+              story: new FormControl(''),
+              values: new FormControl(''),
+              note: new FormControl(''),
+              youtube_url: new FormControl(''),
+              instagram_url: new FormControl(''),
+              facebook_url: new FormControl('')
+            });
         }
        }
     });

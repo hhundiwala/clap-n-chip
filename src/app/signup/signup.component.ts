@@ -20,6 +20,7 @@ export class SignupComponent implements OnInit {
     lastName: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl(''),
+    post_ids: new FormControl(new Array())
   });
 
   ngOnInit() {

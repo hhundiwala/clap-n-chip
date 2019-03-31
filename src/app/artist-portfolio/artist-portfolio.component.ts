@@ -1,3 +1,4 @@
+import { AddEmail, AddId } from './../state/user.action';
 import { UserStateModel } from './../state/user.model';
 import { Artist } from './../models/artist';
 import { Observable } from 'rxjs/Rx';
@@ -7,7 +8,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
 import { UserState } from '../state/user.state';
-import { Select } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 
 @Component({
   selector: 'app-artist-portfolio',
@@ -16,7 +17,7 @@ import { Select } from '@ngxs/store';
 })
 export class ArtistPortfolioComponent implements OnInit {
 
-  constructor(@Inject(DOCUMENT) private document: any, private afs: AngularFirestore, private router: Router) { }
+  constructor(@Inject(DOCUMENT) private document: any, private afs: AngularFirestore, private router: Router, private store: Store) { }
   artist$: Observable<any>;
   art: Artist;
  
@@ -53,4 +54,10 @@ export class ArtistPortfolioComponent implements OnInit {
   gotoEditPortfolio(){
     this.router.navigateByUrl('/edit-portfolio');
   }
+
+  createPost(){
+    this.router.navigateByUrl('/create-post');
+  }
+
+ 
 }

@@ -1,3 +1,4 @@
+import { CreatePostComponent } from './create-post/create-post.component';
 import { SignupComponent } from './signup/signup.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -9,7 +10,8 @@ const routes: Routes = [
   { path: 'artist-signup', component: SignupComponent },
   { path: 'artist-login', component: ArtistLoginComponent },
   { path: 'artist-portfolio', component: ArtistPortfolioComponent },
-  { path: 'edit-portfolio', component: EditPortfolioComponent }
+  { path: 'edit-portfolio', component: EditPortfolioComponent },
+  { path: 'create-post', component: CreatePostComponent }
 ];
 
 @NgModule({
