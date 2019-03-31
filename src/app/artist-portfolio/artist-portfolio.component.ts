@@ -1,3 +1,4 @@
+import { UserStateModel } from './../state/user.model';
 import { Artist } from './../models/artist';
 import { Observable } from 'rxjs/Rx';
 import { Component, OnInit, Inject } from '@angular/core';
@@ -5,6 +6,8 @@ import { FirebaseRepoService } from '../service/firebase-reop.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
+import { UserState } from '../state/user.state';
+import { Select } from '@ngxs/store';
 
 @Component({
   selector: 'app-artist-portfolio',
@@ -16,16 +19,22 @@ export class ArtistPortfolioComponent implements OnInit {
   constructor(@Inject(DOCUMENT) private document: any, private afs: AngularFirestore, private router: Router) { }
   artist$: Observable<any>;
   art: Artist;
+ 
+  @Select(UserState) userState$: Observable<UserStateModel>;
 
   ngOnInit() {
+
+    this.userState$.subscribe(state => {
+      console.log(state);
+      this.artist$ = this.afs.collection<Artist>('Artists', ref => ref.where('email', '==', state.email)).valueChanges();
+      this.artist$.subscribe((art) => {
+        if(art){
+         this.art = art;
+        }
+     });
+    })
     
-    this.artist$ = this.afs.collection<Artist>('Artists', ref => ref.where('email', '==', "hhundiwala@gmail.com")).valueChanges();
-     this.artist$.subscribe((art) => {
-       if(art){
-        this.art = art;
-       }
-      
-    });
+    
   }
 
   gotoFacebook(){

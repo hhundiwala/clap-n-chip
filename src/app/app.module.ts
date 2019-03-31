@@ -1,3 +1,4 @@
+import { UserState } from './state/user.state';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
@@ -13,6 +14,7 @@ import { ArtistLoginComponent } from './artist-login/artist-login.component';
 import { ArtistPortfolioComponent } from './artist-portfolio/artist-portfolio.component';
 import { HeaderComponent } from './header/header.component';
 import { EditPortfolioComponent } from './edit-portfolio/edit-portfolio.component';
+import { NgxsModule } from '@ngxs/store';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { EditPortfolioComponent } from './edit-portfolio/edit-portfolio.componen
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
+    NgxsModule.forRoot([UserState]),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     AngularFirestoreModule

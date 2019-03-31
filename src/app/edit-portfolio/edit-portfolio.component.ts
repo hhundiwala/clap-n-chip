@@ -1,3 +1,4 @@
+import { AddId } from './../state/user.action';
 import { Portfolio } from './../models/portfolio';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
@@ -6,6 +7,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { first } from 'rxjs/operators';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'app-edit-portfolio',
@@ -14,7 +16,7 @@ import { first } from 'rxjs/operators';
 })
 export class EditPortfolioComponent implements OnInit {
 
-  constructor(private afs: AngularFirestore, private router: Router) { }
+  constructor(private afs: AngularFirestore, private router: Router, private store: Store) { }
   editPortfolioForm;
   art: Artist[];
   

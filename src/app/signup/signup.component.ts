@@ -1,7 +1,10 @@
+import { AddId } from './../state/user.action';
+import { Store } from '@ngxs/store';
 import { Artist } from './../models/artist';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { FirebaseRepoService } from '../service/firebase-reop.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +13,7 @@ import { FirebaseRepoService } from '../service/firebase-reop.service';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private firebaseRepo: FirebaseRepoService) { }
+  constructor(private firebaseRepo: FirebaseRepoService, private router: Router, private store: Store) { }
 
   artistform = new FormGroup({
     firstName: new FormControl(''),
@@ -23,8 +26,10 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-     this.firebaseRepo.createArtist(this.artistform.value).then((x) => { console.log(x.id)});
-    console.log(this.artistform.value);
+     this.firebaseRepo.createArtist(this.artistform.value).then((x) => { 
+      this.router.navigateByUrl('/artist-portfolio');
+     });
+     
   }
 }
 
