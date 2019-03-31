@@ -11,6 +11,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ArtistLoginComponent } from './artist-login/artist-login.component';
 import { ArtistPortfolioComponent } from './artist-portfolio/artist-portfolio.component';
+import { HeaderComponent } from './header/header.component';
+import { EditPortfolioComponent } from './edit-portfolio/edit-portfolio.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { ArtistPortfolioComponent } from './artist-portfolio/artist-portfolio.co
     SignupComponent,
     ArtistLoginComponent,
     ArtistPortfolioComponent,
+    HeaderComponent,
+    EditPortfolioComponent,
   ],
   imports: [
     NgbModule,

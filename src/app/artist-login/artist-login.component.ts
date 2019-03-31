@@ -29,7 +29,7 @@ export class ArtistLoginComponent implements OnInit {
     artistCollection.subscribe((collection) => {
       artist = collection;
       if (artist && artist[0].password === this.artistLoginform.value.password) {
-        this.router.navigateByUrl('/artist-signup');
+        this.router.navigateByUrl('/artist-portfolio');
       } else {
         this.errorMessage = "UserName or Password Invalid";
       }

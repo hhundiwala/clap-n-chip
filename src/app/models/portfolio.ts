@@ -1,7 +1,7 @@
 export class Portfolio{
-    belief: string;
+    values: string;
     story: string;
-    image_url: string;
+    note: string;
     instagram_url: string;
     youtube_url: string;
     facebook_url: string;

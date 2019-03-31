@@ -15,10 +15,6 @@ export class FirebaseRepoService {
     return artistCollection.add(artist);
   }
 
-  public artistLogin(credentials: any){
-    
-  }
-
   createUser(){
 
   }
@@ -39,8 +35,8 @@ export class FirebaseRepoService {
 
   }
 
-  getPortfolioOfArtist(){
-
+  public getPortfolioOfArtist(emailID: string){
+    
   }
 
   clapForPost(){
