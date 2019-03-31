@@ -32,7 +32,7 @@ export class ArtistPortfolioComponent implements OnInit {
          this.art = art;
         }
      });
-    })
+    });
     
     
   }

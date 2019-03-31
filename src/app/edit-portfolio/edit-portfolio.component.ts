@@ -7,7 +7,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { first } from 'rxjs/operators';
-import { Store } from '@ngxs/store';
+import { Store, Select } from '@ngxs/store';
+import { UserStateModel } from '../state/user.model';
+import { UserState } from '../state/user.state';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-edit-portfolio',
@@ -19,9 +22,13 @@ export class EditPortfolioComponent implements OnInit {
   constructor(private afs: AngularFirestore, private router: Router, private store: Store) { }
   editPortfolioForm;
   art: Artist[];
-  
+  @Select(UserState) userState$: Observable<UserStateModel>;
+  id:string;
+
   ngOnInit() {
-    var artist$ = this.afs.collection<Artist>('Artists', ref => ref.where('email', '==', "hhundiwala@gmail.com")).valueChanges();
+    this.userState$.subscribe(state => {
+      this.id = state.id;
+      var artist$ = this.afs.collection<Artist>('Artists', ref => ref.where('email', '==', state.email)).valueChanges();
      artist$.subscribe((art) => {
        if(art){
         this.art = art;
@@ -37,33 +44,13 @@ export class EditPortfolioComponent implements OnInit {
           });
         }
        }
-
-      
+    });
     });
   }
 
   updateData(){
-    var id$ = this.afs.collection<Artist>('Artists', ref => ref.where('email', '==', "hhundiwala@gmail.com"))
-    .snapshotChanges()
-    .pipe(map(action => {
-      return action.map(action => {
-        const data = action.payload.doc.data() as Artist;
-        const id = action.payload.doc.id;
-        return { id, data };
-      })
-    }));
-
-    var id;
-    var user;
-    id$.pipe(first()).subscribe((index) => {
-      index.map(data => {
-        id = data.id;
-      })
-      this.afs.collection<Artist>('Artists').doc(id).update({...user, portfolio: this.editPortfolioForm.value});
+      this.afs.collection<Artist>('Artists').doc(this.id).update({...this.art, portfolio: this.editPortfolioForm.value});
       this.router.navigateByUrl('/artist-portfolio');   
-    })
-
-
   }
 
 }
