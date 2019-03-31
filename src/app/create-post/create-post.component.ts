@@ -32,21 +32,17 @@ export class CreatePostComponent implements OnInit {
         post_description: new FormControl(''),
         claps_count: new FormControl(0),
         artist_id: new FormControl(state.id),
+        claps: new FormControl(['dumbObject']),
+        totalChipAmount: new FormControl(0)
       });
     });
   }
 
   onSubmit(){
     this.firebaseRepo.createPost(this.createPostForm.value).then((x) => { 
-      var artist$ = this.afs.collection<Artist>('Artists', ref => ref.where('email', '==', this.state.email)).valueChanges();
-      artist$.subscribe((art) => {
-        if(art){
-          console.log(x.id);
-          this.afs.collection<Artist>('Artists').doc(this.state.id).update({...art, post_ids: art[0].post_ids.push(x.id)});
-        }
+      this.router.navigateByUrl('/artist-portfolio');
      });
-     });
-    this.router.navigateByUrl('/artist-portfolio');
+    
   }
   
   hideCreatePost(){

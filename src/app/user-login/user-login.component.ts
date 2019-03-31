@@ -45,7 +45,7 @@ export class UserLoginComponent implements OnInit {
         console.log(snapObject[0].user.email);
         this.store.dispatch(new AddEmail(snapObject[0].user.email));
         this.store.dispatch(new AddId(snapObject[0].id));
-        this.router.navigateByUrl('/artist-portfolio');
+        this.router.navigateByUrl('/post-list');
       } else {
         this.errorMessage = "UserName or Password Invalid";
       }

@@ -17,22 +17,18 @@ export class FirebaseRepoService {
     return artistCollection.add(artist);
   }
 
-  createUser(user: User){
+  public createUser(user: User){
     var artistCollection = this.afs.collection<User>('Users');
     return artistCollection.add(user);
   }
 
-  createPost(post: Post){
+  public createPost(post: Post){
     var artistCollection = this.afs.collection<Post>('Posts');
     return artistCollection.add(post);
   }
 
-  createPortfolio(){
-
-  }
-
-  getAllPosts(){
-
+  public getAllPosts(){
+    return this.afs.collection<Post>('Posts');
   }
 
   getAllUsers(){

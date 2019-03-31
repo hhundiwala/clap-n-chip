@@ -18,6 +18,7 @@ import { EditPortfolioComponent } from './edit-portfolio/edit-portfolio.componen
 import { NgxsModule } from '@ngxs/store';
 import { UserSignupComponent } from './user-signup/user-signup.component';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { PostListComponent } from './post-list/post-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UserLoginComponent } from './user-login/user-login.component';
     EditPortfolioComponent,
     CreatePostComponent,
     UserSignupComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    PostListComponent
   ],
   imports: [
     NgbModule,

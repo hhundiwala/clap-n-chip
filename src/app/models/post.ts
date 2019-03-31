@@ -5,4 +5,5 @@ post_description:string;
 embedded_post_url?: string;
 image_url?: string;
 claps?: string[];
+totalChipAmount: number;
 }
