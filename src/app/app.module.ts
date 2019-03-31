@@ -19,6 +19,7 @@ import { NgxsModule } from '@ngxs/store';
 import { UserSignupComponent } from './user-signup/user-signup.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { PostListComponent } from './post-list/post-list.component';
+import { FirstPageComponent } from './first-page/first-page.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PostListComponent } from './post-list/post-list.component';
     CreatePostComponent,
     UserSignupComponent,
     UserLoginComponent,
-    PostListComponent
+    PostListComponent,
+    FirstPageComponent
   ],
   imports: [
     NgbModule,

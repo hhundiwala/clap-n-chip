@@ -125,7 +125,6 @@ export class PostListComponent implements OnInit {
         totalChipAmount: postToBeUpdated.totalChipAmount + this.chipAmountForm.value.amount
     });
       console.log(postToBeUpdated);
-    
   }
 
   

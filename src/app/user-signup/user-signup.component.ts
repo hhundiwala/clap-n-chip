@@ -28,4 +28,7 @@ export class UserSignupComponent implements OnInit {
     });
   }
   
+  gotoUserLogin(){
+    this.router.navigateByUrl('/user-login');
+  }
 }

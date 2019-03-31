@@ -1,3 +1,4 @@
+import { FirstPageComponent } from './first-page/first-page.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { SignupComponent } from './signup/signup.component';
@@ -10,6 +11,7 @@ import { UserSignupComponent } from './user-signup/user-signup.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 
 const routes: Routes = [
+  { path: '', component: FirstPageComponent },
   { path: 'artist-signup', component: SignupComponent },
   { path: 'artist-login', component: ArtistLoginComponent },
   { path: 'artist-portfolio', component: ArtistPortfolioComponent },

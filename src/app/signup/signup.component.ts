@@ -32,6 +32,10 @@ export class SignupComponent implements OnInit {
      });
      
   }
+
+  gotoArtistLogin(){
+    this.router.navigateByUrl('/artist-login');
+  }
 }
 
 

@@ -4,7 +4,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <div id="legend">
-  <legend class="">Get your passion going!!!</legend>
+  <legend style="text-align:center">Get your passion going!!!</legend>
 </div>
 {{ errorMessage }}
 <form [formGroup]="artistLoginform" (ngSubmit)="onSubmit()" class="form-horizontal">
@@ -12,16 +12,23 @@
     <div class="control-group">
       <label class="control-label">Email</label>
       <div class="controls">
-        <input type="text" class="input-xlarge" formControlName="email">
+        <input type="text" class="input-xlarge" width="50px" formControlName="email">
       </div>
     </div>
 
     <div class="control-group">
+        <label class="control-label">Password</label>
+        <div class="controls">
+          <input type="password" class="input-xlarge" size="5" formControlName="password">
+        </div>
+      </div>
+
+    <!-- <div class="control-group">
       <label class="control-label">Password</label>
       <div class="controls">
-        <input type="password" class="input-xlarge" formControlName="password">
+        <input type="password" class="input-xlarge" hidden>
       </div>
-    </div>
+    </div> -->
 
     <div class="control-group">
       <!-- Button -->
