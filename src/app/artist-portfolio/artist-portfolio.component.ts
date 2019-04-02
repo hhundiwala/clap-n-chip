@@ -39,7 +39,7 @@ export class ArtistPortfolioComponent implements OnInit {
   }
 
   gotoFacebook(){
-    this.document.location.href = this.art[0].portfolio.facebook_url;
+    window.open("this.art[0].portfolio.facebook_url", "_blank");
   }
 
   gotoYoutube(){

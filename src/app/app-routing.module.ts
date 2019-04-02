@@ -1,3 +1,4 @@
+import { PortfolioViewComponent } from './portfolio-view/portfolio-view.component';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { CreatePostComponent } from './create-post/create-post.component';
@@ -19,7 +20,9 @@ const routes: Routes = [
   { path: 'create-post', component: CreatePostComponent },
   { path: 'user-signup', component: UserSignupComponent },
   { path: 'user-login', component: UserLoginComponent },
-  { path: 'post-list', component: PostListComponent }
+  { path: 'post-list', component: PostListComponent },
+  { path: 'view-portfolio', component: PortfolioViewComponent }
+
 ];
 
 @NgModule({

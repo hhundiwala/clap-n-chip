@@ -20,6 +20,7 @@ import { UserSignupComponent } from './user-signup/user-signup.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { FirstPageComponent } from './first-page/first-page.component';
+import { PortfolioViewComponent } from './portfolio-view/portfolio-view.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FirstPageComponent } from './first-page/first-page.component';
     UserSignupComponent,
     UserLoginComponent,
     PostListComponent,
-    FirstPageComponent
+    FirstPageComponent,
+    PortfolioViewComponent
   ],
   imports: [
     NgbModule,

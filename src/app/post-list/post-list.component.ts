@@ -1,14 +1,16 @@
+import { AddArtistId } from './../state/user.action';
 import { Post } from './../models/post';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Artist } from '../models/artist';
 import { map, first } from 'rxjs/operators';
 import {DomSanitizer} from '@angular/platform-browser';
-import { Select } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 import { UserState } from '../state/user.state';
 import { Observable } from 'rxjs';
 import { UserStateModel } from '../state/user.model';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-list',
@@ -17,7 +19,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class PostListComponent implements OnInit {
 
-  constructor(private afs: AngularFirestore, private sanitizer: DomSanitizer) { }
+  constructor(private afs: AngularFirestore, private sanitizer: DomSanitizer, private store: Store, private router: Router) { }
   postToDisplay;
   yt_string = "https://www.youtube.com/embed/";
   state: UserStateModel;
@@ -127,6 +129,9 @@ export class PostListComponent implements OnInit {
       console.log(postToBeUpdated);
   }
 
-  
+  getArtistPostfolio(artistId){
+    this.store.dispatch(new AddArtistId(artistId));
+    this.router.navigateByUrl('view-portfolio');
+  }
 
 }
